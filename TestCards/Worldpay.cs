@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 namespace CommifyMSTestFramework.TestCards.Worldpay
 {
 
-	class Visa
+	class VisaCredit
 	{
 		public static string credit_card_holder = "CommifyTest";
 		public static string credit_card_number = "4444333322221111";
@@ -18,7 +18,7 @@ namespace CommifyMSTestFramework.TestCards.Worldpay
 		public static string credit_card_cvc = "123";
 	}
 
-	class MasterCard
+	class MasterCardDebit
 	{
 		public static string debit_card_holder = "CommifyTest";
 		public static string debit_card_number = "5555555555554444";

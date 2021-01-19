@@ -10,7 +10,7 @@ using System.Threading;
 namespace CommifyMSTestFramework
 {
 	[TestClass]
-	public class UnitTest1
+	public class TestMediaburst
 	{
 
 		private IWebDriver webDriver;
@@ -51,15 +51,15 @@ namespace CommifyMSTestFramework
 			PageObjects.Elements homePage = new PageObjects.Elements(webDriver);
 			homePage.MaximiseWindow(browser);
 			webDriver.Navigate().GoToUrl(Instances.Mediaburst.Info.link + SessionID.BasicSessionID.list[0]);
-			homePage.EnterCardHolderName(TestCards.Worldpay.Visa.credit_card_holder);
-			Thread.Sleep(5000);
-			homePage.EnterCardNumber(TestCards.Worldpay.Visa.credit_card_number);
-			homePage.EnterValidFromMonth(TestCards.Worldpay.Visa.credit_card_valid_from_month);
-			homePage.EnterValidFromYear(TestCards.Worldpay.Visa.credit_card_valid_from_year);
-			homePage.EnterExpiryMonth(TestCards.Worldpay.Visa.credit_card_expiry_month);
-			homePage.EnterExpiryYear(TestCards.Worldpay.Visa.credit_card_expiry_year);
-			homePage.EnterCvc(TestCards.Worldpay.Visa.credit_card_cvc);
-			Thread.Sleep(5000);
+			homePage.EnterCardHolderName(TestCards.Worldpay.VisaCredit.credit_card_holder);
+			//Thread.Sleep(5000);
+			homePage.EnterCardNumber(TestCards.Worldpay.VisaCredit.credit_card_number);
+			homePage.EnterValidFromMonth(TestCards.Worldpay.VisaCredit.credit_card_valid_from_month);
+			homePage.EnterValidFromYear(TestCards.Worldpay.VisaCredit.credit_card_valid_from_year);
+			homePage.EnterExpiryMonth(TestCards.Worldpay.VisaCredit.credit_card_expiry_month);
+			homePage.EnterExpiryYear(TestCards.Worldpay.VisaCredit.credit_card_expiry_year);
+			homePage.EnterCvc(TestCards.Worldpay.VisaCredit.credit_card_cvc);
+			//Thread.Sleep(5000);
 			homePage.ClickOnPayButton();
 			Assert.IsTrue(webDriver.Title.Contains("completed"));
 			webDriver.Quit();
