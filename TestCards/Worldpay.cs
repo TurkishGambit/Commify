@@ -6,8 +6,8 @@ using System.Threading.Tasks;
 
 namespace CommifyMSTestFramework.TestCards.Worldpay
 {
-	
-	//4111 1111 1111 1111 should be recognised on INT as DEBIT! ALready asked Darren for that
+
+	//WORLD-PAY-COMM-TEST
 	public class VisaDebit
 	{
 		public static string debit_card_holder = "TestVisaDebit";

@@ -39,7 +39,7 @@ namespace CommifyMSTestFramework.TestCards.SecureTrading
 		public static string debit_card_cvc = "123";
 	}
 
-	public class MasterCardCredit //checked
+	public class MasterCardCredit //on INT is CREDIT on STAGING is DEBIT...
 	{
 		public static string credit_card_holder = "TestMasterCardCredit";
 		public static string credit_card_number = "5100000000000511";

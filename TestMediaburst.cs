@@ -43,7 +43,7 @@ namespace CommifyMSTestFramework
 
 		[DataTestMethod]
 		[DynamicData(nameof(GoogleBrowser), DynamicDataSourceType.Method)]
-		[DynamicData(nameof(FirefoxBrowser), DynamicDataSourceType.Method)]
+		//[DynamicData(nameof(FirefoxBrowser), DynamicDataSourceType.Method)]
 		[TestMethod]
 		public void TestMethod1(IWebDriver browser)
 		{
