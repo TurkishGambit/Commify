@@ -25,9 +25,11 @@ namespace CommifyMSTestFramework.PageObjects
         public IWebElement ExpiryMonth => driver.FindElement(By.Id("ExpireMonth"));
         public IWebElement ExpiryYear => driver.FindElement(By.Id("ExpireYear"));
         public IWebElement Cvc => driver.FindElement(By.Id("Cvc"));
+
         //Buttons
         public IWebElement BackButton => driver.FindElement(By.Id("cancelUrlButton"));
         public IWebElement PayButton => driver.FindElement(By.Id("submitbtn"));
+
         //Error messages
         public IWebElement CardHolderErrorMessage => driver.FindElement(By.Id("CardHolder-error"));
         public IWebElement CardNumberErrorMessage => driver.FindElement(By.Id("CardNumber-error"));
@@ -36,13 +38,18 @@ namespace CommifyMSTestFramework.PageObjects
         public IWebElement ExpiryMonthErrorMessage => driver.FindElement(By.Id("ExpireMonth-error"));
         public IWebElement ExpiryYearErrorMessage => driver.FindElement(By.Id("ExpireYear-error"));
         public IWebElement CvcErrorMessage => driver.FindElement(By.Id("Cvc-error"));
+
         //Other secondary elements
+
         public IWebElement Logo => driver.FindElement(By.XPath("/html/body/div/div[1]/div/div/div/img"));
         public IWebElement BodyHeadCardDetails => driver.FindElement(By.XPath("/html/body/div/div[2]/div[2]/h4"));
+        
         public IWebElement BodyHeadDescription => driver.FindElement(By.XPath("/html/body/div/div[2]/div[2]/p"));
         public IWebElement PaymentAmountDescription => driver.FindElement(By.XPath("/html/body/div/div[2]/div[3]/form/div[2]/div[1]/div[3]/div[1]"));
         public IWebElement SecureSSLDescription => driver.FindElement(By.XPath("/html/body/div/div[2]/div[3]/form/div[2]/div[1]/div[1]/div[2]"));
         public IWebElement Amount => driver.FindElement(By.XPath("/html/body/div/div[2]/div[3]/form/div[2]/div[1]/div[3]/div[2]/span"));
+
+
 
         //Method for maximising the window. Takes the driver as a parameter
         public void MaximiseWindow(IWebDriver driver)
