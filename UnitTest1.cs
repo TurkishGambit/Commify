@@ -42,12 +42,18 @@ namespace CommifyMSTestFramework
 
 		// 1) Successful payment using a valid Visa card
 
-		[DataTestMethod]
-		[DynamicData(nameof(GoogleBrowser), DynamicDataSourceType.Method)]
+		
 		//[DynamicData(nameof(FirefoxBrowser), DynamicDataSourceType.Method)]
 
-		[Fact]
-		[Trait("Category", "UI")]
+
+	
+
+		//[Fact]
+		//[Trait("Category", "UI")]
+
+		[TestMethod]
+		[DataTestMethod]
+		[DynamicData(nameof(GoogleBrowser), DynamicDataSourceType.Method)]
 		public void LoadApplicationPage(IWebDriver browser) 
 		{
 			webDriver = browser;
@@ -62,11 +68,18 @@ namespace CommifyMSTestFramework
 			string test2 = homePage.BodyHeadDescription.Text;
 			Assert.AreEqual(WebText.DefaultText.Paragraph1, test1);
 			Assert.AreEqual(WebText.DefaultText.Paragraph2, test2);
+			//Assert.IsTrue(LoadApplicationPage);
+			Console.WriteLine("UI checks have passed");
+
+
             webDriver.Quit();
 		}
 
-		[Fact]
-		[Trait("Category", "UITest1")]
+		//[Fact]
+		//[Trait("Category", "UITest1")]
+		[TestMethod]
+		[DataTestMethod]
+		[DynamicData(nameof(GoogleBrowser), DynamicDataSourceType.Method)]
 		public void CheckUIText(IWebDriver browser) 
 		{
 			webDriver = browser;
@@ -78,6 +91,9 @@ namespace CommifyMSTestFramework
 		}
 				
 		[TestMethod]
+		[DataTestMethod]
+		[DynamicData(nameof(GoogleBrowser), DynamicDataSourceType.Method)]
+
 		public void TestMethod1(IWebDriver browser)
 		{
 			webDriver = browser;
@@ -106,4 +122,3 @@ namespace CommifyMSTestFramework
 		}
 	}
 }
-*/

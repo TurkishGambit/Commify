@@ -11,6 +11,7 @@ namespace CommifyMSTestFramework.WebText
         public static string Paragraph1 = "Card Details";
         public static string Paragraph2 = "Please enter your card details below.";
         public static string Paragraph3 = "Please note we only accept debit cards";
+        
 
         public static string CardHolder = "PLEASE INSERT YOUR CARD HOLDER NAME";
         public static string CardNumber = "CARD NUMBER";
@@ -19,14 +20,14 @@ namespace CommifyMSTestFramework.WebText
         public static string Cvc = "CVC";
         
         //Text Footer
-        public static string footerTextRight = "This is a secure SSl protected payment";
+        public static string footerTextRight = "This is a secure SSL protected payment";
         public static string footerTextLeft = "Payment Amount";
         //Text Back & Next/Pay/Confirm
         public static string backSubmitBtn = "Back";
         public static string confirSubmitmBtnNext = "Next";
         public static string confirSubmitmBtnPay = "Pay";
         public static string confirSubmitmBtnConfirm = "Confirm";
-
+        
     }
     public class TextErrorMessagesDefault
     {
