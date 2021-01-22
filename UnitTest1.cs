@@ -1,4 +1,4 @@
-using Microsoft.VisualStudio.TestTools.UnitTesting;
+/*using Microsoft.VisualStudio.TestTools.UnitTesting;
 using OpenQA.Selenium;
 using OpenQA.Selenium.Chrome;
 using OpenQA.Selenium.Edge;
@@ -48,7 +48,7 @@ namespace CommifyMSTestFramework
 
 		[Fact]
 		[Trait("Category", "UI")]
-		public void LoadApplicationPage(IWebDriver browser)
+		public void LoadApplicationPage(IWebDriver browser) 
 		{
 			webDriver = browser;
 			PageObjects.Elements homePage = new PageObjects.Elements(webDriver);
@@ -62,12 +62,12 @@ namespace CommifyMSTestFramework
 			string test2 = homePage.BodyHeadDescription.Text;
 			Assert.AreEqual(WebText.DefaultText.Paragraph1, test1);
 			Assert.AreEqual(WebText.DefaultText.Paragraph2, test2);
-			webDriver.Quit();
+            webDriver.Quit();
 		}
 
 		[Fact]
 		[Trait("Category", "UITest1")]
-		public void CheckUIText(IWebDriver browser)
+		public void CheckUIText(IWebDriver browser) 
 		{
 			webDriver = browser;
 			PageObjects.Elements homePage = new PageObjects.Elements(webDriver);
@@ -76,7 +76,7 @@ namespace CommifyMSTestFramework
 			//Assert.AreEqual(WebText.DefaultText.Paragraph1.);
 			//Assert.AreEqual(WebText.DefaultText.Paragraph2.);
 		}
-
+				
 		[TestMethod]
 		public void TestMethod1(IWebDriver browser)
 		{
@@ -106,3 +106,4 @@ namespace CommifyMSTestFramework
 		}
 	}
 }
+*/
