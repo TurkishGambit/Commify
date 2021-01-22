@@ -1,4 +1,5 @@
 using Microsoft.VisualStudio.TestTools.UnitTesting;
+using NUnit.Framework.Internal;
 using OpenQA.Selenium;
 using OpenQA.Selenium.Chrome;
 using OpenQA.Selenium.Edge;
@@ -6,6 +7,7 @@ using OpenQA.Selenium.Firefox;
 using System;
 using System.Collections.Generic;
 using System.Threading;
+using Xunit;
 
 namespace CommifyMSTestFramework
 {
@@ -43,19 +45,65 @@ namespace CommifyMSTestFramework
 
 		[DataTestMethod]
 		[DynamicData(nameof(GoogleBrowser), DynamicDataSourceType.Method)]
-		[DynamicData(nameof(FirefoxBrowser), DynamicDataSourceType.Method)]
-		[TestMethod]
-		public void TestMethod1(IWebDriver browser)
-		{
+		//[DynamicData(nameof(FirefoxBrowser), DynamicDataSourceType.Method)]
+		
+
+		[Fact]
+		[Trait("Category", "UI")]
+		public void LoadApplicationPage(IWebDriver browser) {
+
+			webDriver = browser;
+
+			PageObjects.Elements homePage = new PageObjects.Elements(webDriver);
+			//WebText.WebText text = new WebText.WebText(webDriver);
+
+			homePage.MaximiseWindow(browser);
+
+			webDriver.Navigate().GoToUrl(Instances.CitySave.Info.link + SessionID.BasicSessionID.list[0]);
+
+			string Example = "Citysave Payment Page";
+			string pageTitle = browser.Title;
+			Assert.AreEqual(Example, pageTitle); // Assert page Title
+
+
+			string test1 = homePage.BodyHeadCardDetails.Text;
+			string test2 = homePage.BodyHeadDescription.Text;
+			Assert.AreEqual(WebText.DefaultText.Paragraph1, test1);
+			Assert.AreEqual(WebText.DefaultText.Paragraph2, test2);
+
+            webDriver.Quit();
+		}
+		[Fact]
+		[Trait("Category", "UITest1")]
+		public void CheckUIText(IWebDriver browser) {
+
 			webDriver = browser;
 			PageObjects.Elements homePage = new PageObjects.Elements(webDriver);
 			homePage.MaximiseWindow(browser);
-			webDriver.Navigate().GoToUrl(Instances.Mediaburst.Info.link + SessionID.BasicSessionID.list[0]);
+			webDriver.Navigate().GoToUrl(Instances.CitySave.Info.link + SessionID.BasicSessionID.list[3]);
+			Assert.AreEqual(WebText.DefaultText.Paragraph1.);
+			Assert.AreEqual(WebText.DefaultText.Paragraph2.);
+
+
+
+
+
+		
+		}
+				
+		[TestMethod]
+		public void TestMethod1(IWebDriver browser)
+		{
+
+			webDriver = browser;
+			PageObjects.Elements homePage = new PageObjects.Elements(webDriver);
+			homePage.MaximiseWindow(browser);
+			webDriver.Navigate().GoToUrl(Instances.Mediaburst.Info.link + SessionID.BasicSessionID.list[1]);
 			homePage.EnterCardHolderName(TestCards.Worldpay.Visa.credit_card_holder);
 			Thread.Sleep(5000);
 			homePage.EnterCardNumber(TestCards.Worldpay.Visa.credit_card_number);
-			homePage.EnterValidFromMonth(TestCards.Worldpay.Visa.credit_card_valid_from_month);
-			homePage.EnterValidFromYear(TestCards.Worldpay.Visa.credit_card_valid_from_year);
+			//homePage.EnterValidFromMonth(TestCards.Worldpay.Visa.credit_card_valid_from_month);
+			//homePage.EnterValidFromYear(TestCards.Worldpay.Visa.credit_card_valid_from_year);
 			homePage.EnterExpiryMonth(TestCards.Worldpay.Visa.credit_card_expiry_month);
 			homePage.EnterExpiryYear(TestCards.Worldpay.Visa.credit_card_expiry_year);
 			homePage.EnterCvc(TestCards.Worldpay.Visa.credit_card_cvc);

@@ -21,12 +21,6 @@ namespace CommifyMSTestFramework.SQL
 		}
 
 
-
-
-
-
-
-
 		public DataTable GetQueryResult(String vConnectionString, String vQuery)
 		{
 			SqlConnection Connection;  // It is for SQL connection
