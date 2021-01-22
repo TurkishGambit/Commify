@@ -41,8 +41,9 @@ namespace CommifyMSTestFramework.PageObjects
 
         //Other secondary elements
         public IWebElement Logo => driver.FindElement(By.XPath("/html/body/div/div[1]/div/div/div/img"));
-        public IWebElement BodyHeadCardDetails => driver.FindElement(By.XPath("/html/body/div/div[2]/div[2]/h4"));
-        public IWebElement BodyHeadDescription => driver.FindElement(By.XPath("/html/body/div/div[2]/div[2]/p"));
+        public IWebElement BodyHeadCardDetails => driver.FindElement(By.XPath("/html/body/div/div[2]/div[2]/h4")); //first row
+        public IWebElement BodyHeadDescription => driver.FindElement(By.XPath("/html/body/div/div[2]/div[2]/p")); //second row
+        //shield to add
         public IWebElement PaymentAmountDescription => driver.FindElement(By.XPath("/html/body/div/div[2]/div[3]/form/div[2]/div[1]/div[3]/div[1]"));
         public IWebElement SecureSSLDescription => driver.FindElement(By.XPath("/html/body/div/div[2]/div[3]/form/div[2]/div[1]/div[1]/div[2]"));
         public IWebElement Amount => driver.FindElement(By.XPath("/html/body/div/div[2]/div[3]/form/div[2]/div[1]/div[3]/div[2]/span"));
