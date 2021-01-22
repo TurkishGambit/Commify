@@ -1,5 +1,4 @@
 using Microsoft.VisualStudio.TestTools.UnitTesting;
-using NUnit.Framework.Internal;
 using OpenQA.Selenium;
 using OpenQA.Selenium.Chrome;
 using OpenQA.Selenium.Edge;
@@ -47,56 +46,40 @@ namespace CommifyMSTestFramework
 		[DynamicData(nameof(GoogleBrowser), DynamicDataSourceType.Method)]
 		//[DynamicData(nameof(FirefoxBrowser), DynamicDataSourceType.Method)]
 
-
 		[Fact]
 		[Trait("Category", "UI")]
 		public void LoadApplicationPage(IWebDriver browser)
 		{
-
 			webDriver = browser;
-
 			PageObjects.Elements homePage = new PageObjects.Elements(webDriver);
 			//WebText.WebText text = new WebText.WebText(webDriver);
-
 			homePage.MaximiseWindow(browser);
-
 			webDriver.Navigate().GoToUrl(Instances.CitySave.Info.link + SessionID.BasicSessionID.list[0]);
-
 			string Example = "Citysave Payment Page";
 			string pageTitle = browser.Title;
 			Assert.AreEqual(Example, pageTitle); // Assert page Title
-
-
 			string test1 = homePage.BodyHeadCardDetails.Text;
 			string test2 = homePage.BodyHeadDescription.Text;
 			Assert.AreEqual(WebText.DefaultText.Paragraph1, test1);
 			Assert.AreEqual(WebText.DefaultText.Paragraph2, test2);
-
 			webDriver.Quit();
 		}
+
 		[Fact]
 		[Trait("Category", "UITest1")]
 		public void CheckUIText(IWebDriver browser)
 		{
-
 			webDriver = browser;
 			PageObjects.Elements homePage = new PageObjects.Elements(webDriver);
 			homePage.MaximiseWindow(browser);
 			webDriver.Navigate().GoToUrl(Instances.CitySave.Info.link + SessionID.BasicSessionID.list[3]);
-			Assert.AreEqual(WebText.DefaultText.Paragraph1.);
-			Assert.AreEqual(WebText.DefaultText.Paragraph2.);
-
-
-
-
-
-
+			//Assert.AreEqual(WebText.DefaultText.Paragraph1.);
+			//Assert.AreEqual(WebText.DefaultText.Paragraph2.);
 		}
 
 		[TestMethod]
 		public void TestMethod1(IWebDriver browser)
 		{
-
 			webDriver = browser;
 			PageObjects.Elements homePage = new PageObjects.Elements(webDriver);
 			homePage.MaximiseWindow(browser);
@@ -113,7 +96,6 @@ namespace CommifyMSTestFramework
 			homePage.ClickOnPayButton();
 			Assert.IsTrue(webDriver.Title.Contains("completed"));
 			webDriver.Quit();
-
 		}
 
 		[TestCleanup]
