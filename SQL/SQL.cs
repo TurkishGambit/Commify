@@ -10,7 +10,7 @@ namespace CommifyMSTestFramework.SQL
 {
 	class SQL
 	{
-		public String GetStatusByInstanceIdAndSessionIdFromTblPayments(int instanceID, string sessionID)
+		public String GetStatusByInstanceIdAndSessionId(int instanceID, string sessionID)
 		{
 			DataTable QueryResult = GetQueryResult("Data Source=192.168.110.2; Initial Catalog = IVR_BORDER_AGILE_TEST; User ID = ivr; Password = letmein",
 													$"select * from [IVR_BORDER_AGILE_TEST].[dbo].[tblPayments] where InstanceId = {instanceID} and reference = {sessionID} order by 1 desc");
