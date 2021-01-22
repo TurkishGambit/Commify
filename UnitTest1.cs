@@ -96,6 +96,7 @@ namespace CommifyMSTestFramework
 			homePage.ClickOnPayButton();
 			Assert.IsTrue(webDriver.Title.Contains("completed"));
 			webDriver.Quit();
+
 		}
 
 		[TestCleanup]
