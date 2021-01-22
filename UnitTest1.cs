@@ -48,7 +48,8 @@ namespace CommifyMSTestFramework
 
 		[Fact]
 		[Trait("Category", "UI")]
-		public void LoadApplicationPage(IWebDriver browser) {
+		public void LoadApplicationPage(IWebDriver browser) 
+		{
 			webDriver = browser;
 			PageObjects.Elements homePage = new PageObjects.Elements(webDriver);
 			//WebText.WebText text = new WebText.WebText(webDriver);
@@ -66,7 +67,8 @@ namespace CommifyMSTestFramework
 
 		[Fact]
 		[Trait("Category", "UITest1")]
-		public void CheckUIText(IWebDriver browser) {
+		public void CheckUIText(IWebDriver browser) 
+		{
 			webDriver = browser;
 			PageObjects.Elements homePage = new PageObjects.Elements(webDriver);
 			homePage.MaximiseWindow(browser);
