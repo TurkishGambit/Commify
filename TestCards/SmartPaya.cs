@@ -4,19 +4,19 @@ using System.Text;
 
 namespace CommifyMSTestFramework.TestCards.SmartPaya
 {
-	/*public class VisaDebit //
+	public class VisaDebit // checked
 	{
 		public static string debit_card_holder = "TestVisaDebit";
-		public static string debit_card_number = "";
+		public static string debit_card_number = "4111111111111111";
 		public static string debit_card_valid_month = "12";
 		public static string debit_card_valid_year = "19";
-		public static string debit_card_expiry_month = "12";
-		public static string debit_card_expiry_year = "21";
-		public static string debit_card_cvc = "123";
+		public static string debit_card_expiry_month = "03";
+		public static string debit_card_expiry_year = "30";
+		public static string debit_card_cvc = "737";
 	}
-	*/
 
-	public class VisaCredit // checked
+
+	/*public class VisaCredit // checked
 	{
 		public static string credit_card_holder = "TestVisaCredit";
 		public static string credit_card_number = "4111111111111111";
@@ -26,20 +26,21 @@ namespace CommifyMSTestFramework.TestCards.SmartPaya
 		public static string credit_card_expiry_year = "30";
 		public static string credit_card_cvc = "737";
 	}
-
-	/*public class MasterCardDebit //
-	{
-		public static string debit_card_holder = "TestMasterCardDebit";
-		public static string debit_card_number = "";
-		public static string debit_card_valid_month = "12";
-		public static string debit_card_valid_year = "19";
-		public static string debit_card_expiry_month = "12";
-		public static string debit_card_expiry_year = "21";
-		public static string debit_card_cvc = "123";
-	}
 	*/
 
-	public class MasterCardCredit // checked
+	public class MasterCardDebit // checked
+	{
+		public static string debit_card_holder = "TestMasterCardDebit";
+		public static string debit_card_number = "5555444433331111";
+		public static string debit_card_valid_month = "12";
+		public static string debit_card_valid_year = "19";
+		public static string debit_card_expiry_month = "03";
+		public static string debit_card_expiry_year = "30";
+		public static string debit_card_cvc = "737";
+	}
+	
+
+	/*public class MasterCardCredit // checked
 	{
 		public static string credit_card_holder = "TestMasterCardCredit";
 		public static string credit_card_number = "5555444433331111";
@@ -49,6 +50,7 @@ namespace CommifyMSTestFramework.TestCards.SmartPaya
 		public static string credit_card_expiry_year = "30";
 		public static string credit_card_cvc = "737";
 	}
+	*/
 
 	public class Amex // checked
 	{
