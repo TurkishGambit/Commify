@@ -1,4 +1,5 @@
-﻿using System;
+﻿using OpenQA.Selenium;
+using System;
 using System.Collections.Generic;
 using System.Text;
 
@@ -57,6 +58,43 @@ namespace CommifyMSTestFramework.TestCards.PaySafe3DS
 		public static string amex_card_expiry_month = "12";
 		public static string amex_card_expiry_year = "21";
 		public static string amex_card_cvc = "1111";
+	}
+
+	public static class ChallengePage 
+	{
+		private static IWebDriver Driver { get; set; }
+
+		//NETBANX Test ACS Page Elements https://pay.test.netbanx.com/emulator/test_acs
+		public static IWebElement AuthSucc => Driver.FindElement(By.XPath("/html/body/form/div/input[1]"));
+		public static IWebElement AuthFail => Driver.FindElement(By.XPath("/html/body/form/div/input[2]"));
+		public static IWebElement AuthUnav => Driver.FindElement(By.XPath("/html/body/form/div/input[3]"));
+		public static IWebElement Attempts => Driver.FindElement(By.XPath("/html/body/form/div/input[4]"));
+		public static IWebElement AuthErr => Driver.FindElement(By.XPath("/html/body/form/div/input[5]"));
+
+		public static void AuthenticationSuccessful()
+		{
+			AuthSucc.Click();
+		}
+
+		public static void AuthenticationFailed()
+		{
+			AuthFail.Click();
+		}
+
+		public static void AuthenticationCouldNotBePerformed()
+		{
+			AuthUnav.Click();
+		}
+
+		public static void AttemptsProcessingPerformed()
+		{
+			Attempts.Click();
+		}
+
+		public static void AuthenticationError()
+		{
+			AuthErr.Click();
+		}
 	}
 
 
