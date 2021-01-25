@@ -60,7 +60,62 @@ namespace CommifyMSTestFramework.TestCards.PaySafe3DS
 		public static string amex_card_cvc = "1111";
 	}
 
-	public static class ChallengePage 
+	public class NotEntrolledVisaDebit // checked
+	{
+		public static string debit_card_holder = "TestNotEnrolledVisaDebit";
+		public static string debit_card_number = "4724090000000008";
+		public static string debit_card_valid_from_month = "12";
+		public static string debit_card_valid_from_year = "19";
+		public static string debit_card_expiry_month = "12";
+		public static string debit_card_expiry_year = "21";
+		public static string debit_card_cvc = "111";
+	}
+
+	public class NotEntrolledVisaCredit // checked
+	{
+		public static string credit_card_holder = "TestNotEnrolledVisaCredit";
+		public static string credit_card_number = "4530910000012345";
+		public static string credit_card_valid_from_month = "12";
+		public static string credit_card_valid_from_year = "19";
+		public static string credit_card_expiry_month = "12";
+		public static string credit_card_expiry_year = "21";
+		public static string credit_card_cvc = "111";
+	}
+
+	public class NotEntrolledMasterCardDebit // checked
+	{
+		public static string debit_card_holder = "TestNotEnrolledMasterCardDebit";
+		public static string debit_card_number = "5036150000001115";
+		public static string debit_card_valid_from_month = "12";
+		public static string debit_card_valid_from_year = "19";
+		public static string debit_card_expiry_month = "12";
+		public static string debit_card_expiry_year = "21";
+		public static string debit_card_cvc = "111";
+	}
+
+	public class NotEntrolledMasterCardCredit // checked
+	{
+		public static string credit_card_holder = "TestEnrolledMasterCardCredit";
+		public static string credit_card_number = "5191330000004415";
+		public static string credit_card_valid_from_month = "12";
+		public static string credit_card_valid_from_year = "19";
+		public static string credit_card_expiry_month = "12";
+		public static string credit_card_expiry_year = "21";
+		public static string credit_card_cvc = "111";
+	}
+
+	public class NotEntrolledAmex // checked
+	{
+		public static string amex_card_holder = "TestNotEnrolledAmex";
+		public static string amex_card_number = "373511000000005";
+		public static string amex_card_valid_from_month = "12";
+		public static string amex_card_valid_from_year = "19";
+		public static string amex_card_expiry_month = "12";
+		public static string amex_card_expiry_year = "21";
+		public static string amex_card_cvc = "1111";
+	}
+
+	public static class ChallengePage //class created for 3ds challenge page
 	{
 		private static IWebDriver Driver { get; set; }
 
@@ -71,27 +126,27 @@ namespace CommifyMSTestFramework.TestCards.PaySafe3DS
 		public static IWebElement Attempts => Driver.FindElement(By.XPath("/html/body/form/div/input[4]"));
 		public static IWebElement AuthErr => Driver.FindElement(By.XPath("/html/body/form/div/input[5]"));
 
-		public static void AuthenticationSuccessful()
+		public static void AuthenticationSuccessful() //method for clicking on Auth Successful
 		{
 			AuthSucc.Click();
 		}
 
-		public static void AuthenticationFailed()
+		public static void AuthenticationFailed() //method for clicking on Auth Failed
 		{
 			AuthFail.Click();
 		}
 
-		public static void AuthenticationCouldNotBePerformed()
+		public static void AuthenticationCouldNotBePerformed() //method for clicking on Auth Unavailable
 		{
 			AuthUnav.Click();
 		}
 
-		public static void AttemptsProcessingPerformed()
+		public static void AttemptsProcessingPerformed() //method for clicking on Attempts Processing
 		{
 			Attempts.Click();
 		}
 
-		public static void AuthenticationError()
+		public static void AuthenticationError() //method for clicking on Auth Error
 		{
 			AuthErr.Click();
 		}
