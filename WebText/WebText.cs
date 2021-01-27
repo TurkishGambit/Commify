@@ -37,7 +37,7 @@ namespace CommifyMSTestFramework.WebText
         public static string ErrorExpirtDate1 = "PLEASE ENTER A VALID DATE";
         public static string ErrorExpirtDate2 = "PLEASE ENTER A VALID DATE";
         public static string ErrorCvc = "CVC IS REQUIRED";
-     }
+    }
 
     public class TextErrorMessagesInvalidData
     {

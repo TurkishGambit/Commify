@@ -3,6 +3,7 @@ using OpenQA.Selenium;
 using OpenQA.Selenium.Chrome;
 using OpenQA.Selenium.Edge;
 using OpenQA.Selenium.Firefox;
+using OpenQA.Selenium.Support.UI;
 using System;
 using System.Collections.Generic;
 using System.Threading;
@@ -125,15 +126,28 @@ namespace CommifyMSTestFramework
 			homePage.MaximiseWindow(browser);
 			webDriver.Navigate().GoToUrl("https://npower.mysecurepay-int.co.uk/SessionId?=976156be-28fc-45ef-81dd-06fab93c6010");
 			homePage.EnterCardHolderName(TestCards.PaySafe3DS.EnrolledVisaCredit.credit_card_holder);
-			Thread.Sleep(5000);
 			homePage.EnterCardNumber(TestCards.PaySafe3DS.EnrolledVisaDebit.debit_card_number);
-			//homePage.EnterValidFromMonth(TestCards.PaySafe3DS.EnrolledVisaDebit.debit_card_expiry_month);
-			//homePage.EnterValidFromYear(TestCards.PaySafe3DS.EnrolledVisaDebit.debit_card_expiry_year);
 			homePage.EnterExpiryMonth(TestCards.PaySafe3DS.EnrolledVisaDebit.debit_card_expiry_month);
 			homePage.EnterExpiryYear(TestCards.PaySafe3DS.EnrolledVisaDebit.debit_card_expiry_year);
 			homePage.EnterCvc(TestCards.PaySafe3DS.EnrolledVisaDebit.debit_card_cvc);
 			Thread.Sleep(5000);
 			homePage.ClickOnPayButton();
+
+			String currentUrl = webDriver.Url;
+			Console.WriteLine(currentUrl);
+
+			DefaultWait<IWebDriver> fluentWait = new DefaultWait<IWebDriver>(browser)
+			{
+				Timeout = TimeSpan.FromSeconds(10),
+				PollingInterval = TimeSpan.FromMilliseconds(250)
+			};
+			fluentWait.IgnoreExceptionTypes(typeof(NoSuchElementException));
+			fluentWait.Until(x => homePage.ValidatingEnteredDetails);
+
+			Console.WriteLine("Validating Entered Details Shown");
+			fluentWait.Until(x => homePage.ProcessingPayment);
+			Console.WriteLine("Processing Payment Shown");
+
 			TestCards.PaySafe3DS.ChallengePage challenge = new TestCards.PaySafe3DS.ChallengePage(webDriver);
 			challenge.AuthenticationSuccessful();
 			Assert.IsTrue(webDriver.Title.Contains("completed"));
