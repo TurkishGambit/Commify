@@ -39,7 +39,7 @@ namespace CommifyMSTestFramework.TestCards.Commidea
 	}
 	*/
 
-	public class MasterCardCredit // checked
+	public class MasterCardCredit // checked 
 	{
 		public static string credit_card_holder = "TestMasterCardCredit";
 		public static string credit_card_number = "513518000000001";
