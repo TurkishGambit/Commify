@@ -115,6 +115,30 @@ namespace CommifyMSTestFramework
 
 		}
 
+		[TestMethod]
+		[DataTestMethod]
+		[DynamicData(nameof(GoogleBrowser), DynamicDataSourceType.Method)]
+		public void NPowerTest(IWebDriver browser)
+		{
+			webDriver = browser;
+			PageObjects.Elements homePage = new PageObjects.Elements(webDriver);
+			homePage.MaximiseWindow(browser);
+			webDriver.Navigate().GoToUrl("https://npower.mysecurepay-int.co.uk/SessionId?=976156be-28fc-45ef-81dd-06fab93c6010");
+			homePage.EnterCardHolderName(TestCards.PaySafe3DS.EnrolledVisaCredit.credit_card_holder);
+			Thread.Sleep(5000);
+			homePage.EnterCardNumber(TestCards.PaySafe3DS.EnrolledVisaDebit.debit_card_number);
+			//homePage.EnterValidFromMonth(TestCards.PaySafe3DS.EnrolledVisaDebit.debit_card_expiry_month);
+			//homePage.EnterValidFromYear(TestCards.PaySafe3DS.EnrolledVisaDebit.debit_card_expiry_year);
+			homePage.EnterExpiryMonth(TestCards.PaySafe3DS.EnrolledVisaDebit.debit_card_expiry_month);
+			homePage.EnterExpiryYear(TestCards.PaySafe3DS.EnrolledVisaDebit.debit_card_expiry_year);
+			homePage.EnterCvc(TestCards.PaySafe3DS.EnrolledVisaDebit.debit_card_cvc);
+			Thread.Sleep(5000);
+			homePage.ClickOnPayButton();
+			TestCards.PaySafe3DS.ChallengePage challenge = new TestCards.PaySafe3DS.ChallengePage(webDriver);
+			challenge.AuthenticationSuccessful();
+			Assert.IsTrue(webDriver.Title.Contains("completed"));
+		}
+
 		[TestCleanup]
 		public void TestCleanup()
 		{

@@ -115,38 +115,43 @@ namespace CommifyMSTestFramework.TestCards.PaySafe3DS
 		public static string amex_card_cvc = "1111";
 	}
 
-	public static class ChallengePage //class created for 3ds challenge page
+	public class ChallengePage //class created for 3ds challenge page
 	{
-		private static IWebDriver Driver { get; set; }
+		private IWebDriver ChallengePageDriver { get; set; }
+
+		public ChallengePage(IWebDriver driver)
+		{
+			this.ChallengePageDriver = driver;
+		}
 
 		//NETBANX Test ACS Page Elements https://pay.test.netbanx.com/emulator/test_acs
-		public static IWebElement AuthSucc => Driver.FindElement(By.XPath("/html/body/form/div/input[1]"));
-		public static IWebElement AuthFail => Driver.FindElement(By.XPath("/html/body/form/div/input[2]"));
-		public static IWebElement AuthUnav => Driver.FindElement(By.XPath("/html/body/form/div/input[3]"));
-		public static IWebElement Attempts => Driver.FindElement(By.XPath("/html/body/form/div/input[4]"));
-		public static IWebElement AuthErr => Driver.FindElement(By.XPath("/html/body/form/div/input[5]"));
+		public IWebElement AuthSucc => ChallengePageDriver.FindElement(By.XPath("/html/body/form/div/input[1]"));
+		public IWebElement AuthFail => ChallengePageDriver.FindElement(By.XPath("/html/body/form/div/input[2]"));
+		public IWebElement AuthUnav => ChallengePageDriver.FindElement(By.XPath("/html/body/form/div/input[3]"));
+		public IWebElement Attempts => ChallengePageDriver.FindElement(By.XPath("/html/body/form/div/input[4]"));
+		public IWebElement AuthErr => ChallengePageDriver.FindElement(By.XPath("/html/body/form/div/input[5]"));
 
-		public static void AuthenticationSuccessful() //method for clicking on Auth Successful
+		public void AuthenticationSuccessful() //method for clicking on Auth Successful
 		{
 			AuthSucc.Click();
 		}
 
-		public static void AuthenticationFailed() //method for clicking on Auth Failed
+		public void AuthenticationFailed() //method for clicking on Auth Failed
 		{
 			AuthFail.Click();
 		}
 
-		public static void AuthenticationCouldNotBePerformed() //method for clicking on Auth Unavailable
+		public void AuthenticationCouldNotBePerformed() //method for clicking on Auth Unavailable
 		{
 			AuthUnav.Click();
 		}
 
-		public static void AttemptsProcessingPerformed() //method for clicking on Attempts Processing
+		public void AttemptsProcessingPerformed() //method for clicking on Attempts Processing
 		{
 			Attempts.Click();
 		}
 
-		public static void AuthenticationError() //method for clicking on Auth Error
+		public void AuthenticationError() //method for clicking on Auth Error
 		{
 			AuthErr.Click();
 		}
