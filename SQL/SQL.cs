@@ -1,10 +1,6 @@
 ﻿using System;
-using System.Collections.Generic;
 using System.Data;
 using System.Data.SqlClient;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace CommifyMSTestFramework.SQL
 {
@@ -25,7 +21,6 @@ namespace CommifyMSTestFramework.SQL
 			String Status = QueryResult.Rows[0].ItemArray[4].ToString();
 			return Status;
 		}
-
 
 		private static DataTable GetQueryResult(String vConnectionString, String vQuery)
 		{
@@ -51,6 +46,32 @@ namespace CommifyMSTestFramework.SQL
 				return new DataTable();
 			}
 			return ds.Tables[0];
+		}
+
+		public static void DeleteFromTblSoapUsingSessionIdAndInstanceId(string sessionID, int instanceID)
+		{
+			String conn = "Data Source=192.168.110.2; Initial Catalog = IVR_BORDER_AGILE_TEST; User ID = ivr; Password = letmein";
+			String query = $"delete from tblSOAP where Reference = '{sessionID}' and InstanceId = {instanceID}";
+			
+			SqlConnection Connection;  // It is for SQL connection
+			DataSet ds = new DataSet();  // it is for storing query result
+			try
+			{
+				Connection = new SqlConnection(conn);  // Declare SQL connection with connection string 
+				Connection.Open();  // Connect to Database
+				Console.WriteLine("✔Connected to DB✔");
+				SqlDataAdapter adp = new SqlDataAdapter(query, Connection);  // Execute query on database 
+				adp.Fill(ds);  // Store query result into DataSet object
+				Console.WriteLine("✔Rows deleted in tblSOAP✔");
+				Connection.Close();  // Close connection 
+				Connection.Dispose();   // Dispose connection 
+				Console.WriteLine("✔SQL connection disposed✔");
+			}
+			catch (Exception E)
+			{
+				Console.WriteLine("✘Error✘");
+				Console.WriteLine(E.Message);
+			}
 		}
 	}
 }
