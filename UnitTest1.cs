@@ -42,11 +42,11 @@ namespace CommifyMSTestFramework
 
 		// 1) Successful payment using a valid Visa card
 
-		
+
 		//[DynamicData(nameof(FirefoxBrowser), DynamicDataSourceType.Method)]
 
 
-	
+
 
 		//[Fact]
 		//[Trait("Category", "UI")]
@@ -54,7 +54,7 @@ namespace CommifyMSTestFramework
 		[TestMethod]
 		[DataTestMethod]
 		[DynamicData(nameof(GoogleBrowser), DynamicDataSourceType.Method)]
-		public void LoadApplicationPage(IWebDriver browser) 
+		public void LoadApplicationPage(IWebDriver browser)
 		{
 			webDriver = browser;
 			PageObjects.Elements homePage = new PageObjects.Elements(browser);
@@ -72,7 +72,7 @@ namespace CommifyMSTestFramework
 			Console.WriteLine("UI checks have passed");
 
 
-            webDriver.Quit();
+			webDriver.Quit();
 		}
 
 		//[Fact]
@@ -80,7 +80,7 @@ namespace CommifyMSTestFramework
 		[TestMethod]
 		[DataTestMethod]
 		[DynamicData(nameof(GoogleBrowser), DynamicDataSourceType.Method)]
-		public void CheckUIText(IWebDriver browser) 
+		public void CheckUIText(IWebDriver browser)
 		{
 			webDriver = browser;
 			PageObjects.Elements homePage = new PageObjects.Elements(browser);
@@ -89,7 +89,7 @@ namespace CommifyMSTestFramework
 			//Assert.AreEqual(WebText.DefaultText.Paragraph1.);
 			//Assert.AreEqual(WebText.DefaultText.Paragraph2.);
 		}
-				
+
 		[TestMethod]
 		[DataTestMethod]
 		[DynamicData(nameof(GoogleBrowser), DynamicDataSourceType.Method)]
@@ -124,26 +124,6 @@ namespace CommifyMSTestFramework
 			PageObjects.Elements homePage = new PageObjects.Elements(browser);
 			homePage.MaximiseWindow(browser);
 			webDriver.Navigate().GoToUrl("https://npower.mysecurepay-int.co.uk/SessionId?=976156be-28fc-45ef-81dd-06fab93c6010");
-			if (webDriver.Title.Contains("Not Found"))
-			{
-				throw new ArgumentException("Cristina is doing a deploy on Agile Web :D");
-			}
-			if (webDriver.Url.Contains("completed"))
-			{
-				Console.WriteLine("SessionID has been already used. Deleting from tblSOAP...");
-				SQL.Queries.TblSoapDeleteUsingInstanceIdAndSessionId(1183 , "976156be-28fc-45ef-81dd-06fab93c6010");
-				webDriver.Navigate().GoToUrl("https://npower.mysecurepay-int.co.uk/SessionId?=976156be-28fc-45ef-81dd-06fab93c6010");
-			}
-			String lookUpWeb = SQL.Queries.TblSoapsGetLookUpWebStatusByInstanceIdAndSessionId(1183, "976156be-28fc-45ef-81dd-06fab93c6010");
-			if (lookUpWeb.Equals("FAILED"))
-			{
-				throw new ArgumentException("LOOKUP-WEB status is FAILED!");
-			}
-			else
-			{
-				Console.WriteLine("Status for LOOKUP-WEB: " + lookUpWeb);
-			}
-			//Thread.Sleep(5000);
 			homePage.EnterCardHolderName(TestCards.PaySafe3DS.EnrolledVisaCredit.credit_card_holder);
 			homePage.EnterCardNumber(TestCards.PaySafe3DS.EnrolledVisaDebit.debit_card_number);
 			homePage.EnterExpiryMonth(TestCards.PaySafe3DS.EnrolledVisaDebit.debit_card_expiry_month);
