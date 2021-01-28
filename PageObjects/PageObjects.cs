@@ -45,10 +45,23 @@ namespace CommifyMSTestFramework.PageObjects
         public IWebElement BodyHeadDescription => driver.FindElement(By.XPath("/html/body/div/div[2]/div[2]/p")); //second row
         public IWebElement BodyHeadDescription2 => driver.FindElement(By.Id("description2")); //third row (if the instance is debit only this row will be shown)
 
-        //shield to add
+        //shield to add!!!
         public IWebElement PaymentAmountDescription => driver.FindElement(By.XPath("/html/body/div/div[2]/div[3]/form/div[2]/div[1]/div[3]/div[1]"));
         public IWebElement SecureSSLDescription => driver.FindElement(By.XPath("/html/body/div/div[2]/div[3]/form/div[2]/div[1]/div[1]/div[2]"));
         public IWebElement Amount => driver.FindElement(By.XPath("/html/body/div/div[2]/div[3]/form/div[2]/div[1]/div[3]/div[2]/span"));
+
+        //Validating Entered Details elements!
+        public IWebElement ValidatingEnteredDetails => driver.FindElement(By.XPath("/html/body/div/div[2]/div[5]/div[1]/h4[1]"));
+        public IWebElement DontRefreshThePage_ValidatingEnteredDetails => driver.FindElement(By.XPath("/html/body/div/div[2]/div[5]/div[1]/p"));
+        public IWebElement PleaseWait_ValidatingEnteredDetails => driver.FindElement(By.XPath("/html/body/div/div[2]/div[5]/div[1]/h4[2]"));
+        public IWebElement Spinner_ValidatingEnteredDetails => driver.FindElement(By.XPath("/html/body/div/div[2]/div[5]/div[2]/img"));
+
+
+        //Processing Payment elements!
+        public IWebElement ProcessingPayment => driver.FindElement(By.XPath("/html/body/div/div[2]/form/div[1]/h4"));
+        public IWebElement DontRefreshThePage_ProcessingPayment => driver.FindElement(By.XPath("/html/body/div/div[2]/form/div[1]/p"));
+        public IWebElement PleaseWait_ProcessingPayment => driver.FindElement(By.XPath("/html/body/div/div[2]/form/div[2]/h4"));
+        public IWebElement Spinner_ProcessingPayment => driver.FindElement(By.XPath("/html/body/div/div[2]/form/div[3]/img"));
 
         //Method for maximising the window. Takes the driver as a parameter
         public void MaximiseWindow(IWebDriver driver)

@@ -22,13 +22,14 @@ namespace CommifyMSTestFramework.WebText
         //Text Footer
         public static string footerTextRight = "This is a secure SSL protected payment";
         public static string footerTextLeft = "Payment Amount";
+
         //Text Back & Next/Pay/Confirm
         public static string backSubmitBtn = "Back";
         public static string confirSubmitmBtnNext = "Next";
         public static string confirSubmitmBtnPay = "Pay";
-        public static string confirSubmitmBtnConfirm = "Confirm";
-        
+        public static string confirSubmitmBtnConfirm = "Confirm";    
     }
+
     public class TextErrorMessagesDefault
     {
         public static string ErrorCardHolderName = "CARD HOLDER NAME IS REQUIRED";
@@ -36,7 +37,8 @@ namespace CommifyMSTestFramework.WebText
         public static string ErrorExpirtDate1 = "PLEASE ENTER A VALID DATE";
         public static string ErrorExpirtDate2 = "PLEASE ENTER A VALID DATE";
         public static string ErrorCvc = "CVC IS REQUIRED";
-     }
+    }
+
     public class TextErrorMessagesInvalidData
     {
         public static string ErrorCardHolderNameInvalidDate = "PLEASE ENTER CARD HOLDER NAME EXACTLY AS IT APPEARS ON THE CARD";
@@ -54,17 +56,19 @@ namespace CommifyMSTestFramework.WebText
         public static string ErrorExpiryDate1InvalidDateTwoSymbol = "PLEASE ENTER A VALUE LESS THAN OR EQUAL TO 12";
         public static string ErrorExpiryDate2InvalidDateTwoSymbol = "THE VALID YEAR NEEDS TO BE GREATER OR EQUAL TO 21";
     }
-    public class TextValidatingPayment {
+
+    public class TextValidatingPayment 
+    {
         public static string Title1 = "VALIDATING ENTERED DETAILS...";
         public static string Title2 = "Please don't refresh the page!";
         public static string Title3 = "PLEASE WAIT...";
     }
+
     public class TextProssessingPayment
     {
         public static string Title1 = "PROSSESSING PAYMENT....";
         public static string Title2 = "Please don't refresh the page!";
         public static string Title3 = "PLEASE WAIT...";
     }
-
 
 }
