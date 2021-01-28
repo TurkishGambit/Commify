@@ -124,7 +124,8 @@ namespace CommifyMSTestFramework
 			webDriver = browser;
 			PageObjects.Elements homePage = new PageObjects.Elements(browser);
 			homePage.MaximiseWindow(browser);
-			homePage.MaximiseWindow(browser);
+			SQL.Queries.DeleteFromTblSoapUsingSessionIdAndInstanceId("976156be-28fc-45ef-81dd-06fab93c6010", 1183);
+			Thread.Sleep(5000);
 			webDriver.Navigate().GoToUrl("https://npower.mysecurepay-int.co.uk/SessionId?=976156be-28fc-45ef-81dd-06fab93c6010");
 			homePage.EnterCardHolderName(TestCards.PaySafe3DS.EnrolledVisaCredit.credit_card_holder);
 			homePage.EnterCardNumber(TestCards.PaySafe3DS.EnrolledVisaDebit.debit_card_number);
