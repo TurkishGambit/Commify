@@ -4,7 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace CommifyMSTestFramework.Instances.Mediaburst
+namespace CommifyMSTestFramework.Instances.MediaburstPaymentPortal
 {
 	class Info
 	{

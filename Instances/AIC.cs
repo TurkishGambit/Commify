@@ -2,9 +2,13 @@
 using System.Collections.Generic;
 using System.Text;
 
-namespace CommifyMSTestFramework.Instances
+namespace CommifyMSTestFramework.Instances.AIC
 {
-    class AIC
+    class Info
     {
+        public static int InstanceID = 1203;
+        public static string link = "https://aic.mysecurepay-int.co.uk/SessionId?=";
+
+
     }
 }

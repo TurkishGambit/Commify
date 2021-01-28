@@ -2,9 +2,11 @@
 using System.Collections.Generic;
 using System.Text;
 
-namespace CommifyMSTestFramework.Instances
+namespace CommifyMSTestFramework.Instances.IkanoWeb
 {
-    class IkanoWeb
+    class Info
     {
+        public static int InstanceID = 1204;
+        public static string link = "https://ikano.mysecurepay-int.co.uk/SessionId?=";
     }
 }
