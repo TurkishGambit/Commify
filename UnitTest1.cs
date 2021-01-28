@@ -58,7 +58,7 @@ namespace CommifyMSTestFramework
 		public void LoadApplicationPage(IWebDriver browser) 
 		{
 			webDriver = browser;
-			PageObjects.Elements homePage = new PageObjects.Elements(webDriver);
+			PageObjects.Elements homePage = new PageObjects.Elements(browser);
 			//WebText.WebText text = new WebText.WebText(webDriver);
 			homePage.MaximiseWindow(browser);
 			webDriver.Navigate().GoToUrl(Instances.CitySave.Info.link + SessionID.BasicSessionID.list[0]);
@@ -84,7 +84,7 @@ namespace CommifyMSTestFramework
 		public void CheckUIText(IWebDriver browser) 
 		{
 			webDriver = browser;
-			PageObjects.Elements homePage = new PageObjects.Elements(webDriver);
+			PageObjects.Elements homePage = new PageObjects.Elements(browser);
 			homePage.MaximiseWindow(browser);
 			webDriver.Navigate().GoToUrl(Instances.CitySave.Info.link + SessionID.BasicSessionID.list[3]);
 			//Assert.AreEqual(WebText.DefaultText.Paragraph1.);
@@ -98,7 +98,7 @@ namespace CommifyMSTestFramework
 		public void TestMethod1(IWebDriver browser)
 		{
 			webDriver = browser;
-			PageObjects.Elements homePage = new PageObjects.Elements(webDriver);
+			PageObjects.Elements homePage = new PageObjects.Elements(browser);
 			homePage.MaximiseWindow(browser);
 			webDriver.Navigate().GoToUrl(Instances.Mediaburst.Info.link + SessionID.BasicSessionID.list[1]);
 			homePage.EnterCardHolderName(TestCards.Worldpay.VisaCredit.credit_card_holder);
@@ -122,7 +122,8 @@ namespace CommifyMSTestFramework
 		public void NPowerTest(IWebDriver browser)
 		{
 			webDriver = browser;
-			PageObjects.Elements homePage = new PageObjects.Elements(webDriver);
+			PageObjects.Elements homePage = new PageObjects.Elements(browser);
+			homePage.MaximiseWindow(browser);
 			homePage.MaximiseWindow(browser);
 			webDriver.Navigate().GoToUrl("https://npower.mysecurepay-int.co.uk/SessionId?=976156be-28fc-45ef-81dd-06fab93c6010");
 			homePage.EnterCardHolderName(TestCards.PaySafe3DS.EnrolledVisaCredit.credit_card_holder);
@@ -133,21 +134,26 @@ namespace CommifyMSTestFramework
 			Thread.Sleep(5000);
 			homePage.ClickOnPayButton();
 
-			String currentUrl = webDriver.Url;
-			Console.WriteLine(currentUrl);
+			//String currentUrl = webDriver.Url;
+			//Console.WriteLine(currentUrl);
 
-			DefaultWait<IWebDriver> fluentWait = new DefaultWait<IWebDriver>(browser)
+
+			//WebDriverWait wait = new WebDriverWait(browser, TimeSpan.FromSeconds(5));
+			//wait.Until(ExpectedConditions.ElementIsVisible(By.XPath("/html/body/div/div[2]/div[5]/div[1]/h4[1]")));
+
+
+			/*DefaultWait<IWebDriver> fluentWait = new DefaultWait<IWebDriver>(webDriver)
 			{
-				Timeout = TimeSpan.FromSeconds(10),
+				Timeout = TimeSpan.FromSeconds(5),
 				PollingInterval = TimeSpan.FromMilliseconds(250)
 			};
 			fluentWait.IgnoreExceptionTypes(typeof(NoSuchElementException));
-			fluentWait.Until(x => homePage.ValidatingEnteredDetails);
+			var ValidEnterDet =  fluentWait.Until(x => homePage.ValidatingEnteredDetails.Text);
+			Console.WriteLine(ValidEnterDet);
+			//fluentWait.Until(x => homePage.ProcessingPayment);
+			//Console.WriteLine("Processing Payment Shown");
 
-			Console.WriteLine("Validating Entered Details Shown");
-			fluentWait.Until(x => homePage.ProcessingPayment);
-			Console.WriteLine("Processing Payment Shown");
-
+			*/
 			TestCards.PaySafe3DS.ChallengePage challenge = new TestCards.PaySafe3DS.ChallengePage(webDriver);
 			challenge.AuthenticationSuccessful();
 			Assert.IsTrue(webDriver.Title.Contains("completed"));
