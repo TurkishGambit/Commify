@@ -17,7 +17,7 @@ namespace CommifyMSTestFramework.SQL
 
 			// 4 is the index of Column of STATUS
 			String paymentStatus = QueryResult.Rows[0].ItemArray[4].ToString();
-			return paymentStatus;
+			return paymentStatus; 
 		}
 
 
