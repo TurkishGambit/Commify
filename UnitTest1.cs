@@ -155,7 +155,7 @@ namespace CommifyMSTestFramework
 			//String currentUrl = webDriver.Url;
 			//Console.WriteLine(currentUrl);
 
-
+			//ciao
 			//WebDriverWait wait = new WebDriverWait(browser, TimeSpan.FromSeconds(5));
 			//wait.Until(ExpectedConditions.ElementIsVisible(By.XPath("/html/body/div/div[2]/div[5]/div[1]/h4[1]")));
 
