@@ -14,7 +14,7 @@ namespace CommifyMSTestFramework.SQL
 			// 4 is the index of Column of STATUS
 			//Bear in mind, if you want to pass a string into SQL query remember to add ' ' before and after the parameter
 			//e.g. and reference = '{sessionID}'
-			if (QueryResult.Rows.Count <= 0) 
+			if (QueryResult.Rows.Count <= 0)
 			{
 				throw new ArgumentException("QueryResult is empty! No rows returned!");
 			}
@@ -70,7 +70,7 @@ namespace CommifyMSTestFramework.SQL
 		{
 			String conn = "Data Source=192.168.110.2; Initial Catalog = IVR_BORDER_AGILE_TEST; User ID = ivr; Password = letmein";
 			String query = $"delete from tblSOAP where Reference = '{sessionID}' and InstanceId = {instanceID}";
-			
+
 			SqlConnection Connection;  // It is for SQL connection
 			DataSet ds = new DataSet();  // it is for storing query result
 			try
