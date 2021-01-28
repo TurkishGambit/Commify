@@ -157,6 +157,9 @@ namespace CommifyMSTestFramework
 			TestCards.PaySafe3DS.ChallengePage challenge = new TestCards.PaySafe3DS.ChallengePage(webDriver);
 			challenge.AuthenticationSuccessful();
 			Assert.IsTrue(webDriver.Title.Contains("completed"));
+			var statustblPayment = SQL.Queries.GetStatusByInstanceIdAndSessionId(1183, "976156be-28fc-45ef-81dd-06fab93c6010");
+			Console.WriteLine(statustblPayment);
+			Assert.AreEqual("SUCCESS", statustblPayment);
 		}
 
 		[TestCleanup]
