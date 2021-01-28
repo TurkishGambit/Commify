@@ -61,7 +61,7 @@ namespace CommifyMSTestFramework
 			PageObjects.Elements homePage = new PageObjects.Elements(browser);
 			//WebText.WebText text = new WebText.WebText(webDriver);
 			homePage.MaximiseWindow(browser);
-			webDriver.Navigate().GoToUrl(Instances.CitySave.Info.link + SessionID.BasicSessionID.list[0]);
+			webDriver.Navigate().GoToUrl(Instances.CitySaveCreditUnion.Info.link + SessionID.BasicSessionID.list[0]);
 			string Example = "Citysave Payment Page";
 			string pageTitle = browser.Title;
 			Assert.AreEqual(Example, pageTitle); // Assert page Title
@@ -86,7 +86,7 @@ namespace CommifyMSTestFramework
 			webDriver = browser;
 			PageObjects.Elements homePage = new PageObjects.Elements(browser);
 			homePage.MaximiseWindow(browser);
-			webDriver.Navigate().GoToUrl(Instances.CitySave.Info.link + SessionID.BasicSessionID.list[3]);
+			webDriver.Navigate().GoToUrl(Instances.CitySaveCreditUnion.Info.link + SessionID.BasicSessionID.list[3]);
 			//Assert.AreEqual(WebText.DefaultText.Paragraph1.);
 			//Assert.AreEqual(WebText.DefaultText.Paragraph2.);
 		}
@@ -100,7 +100,7 @@ namespace CommifyMSTestFramework
 			webDriver = browser;
 			PageObjects.Elements homePage = new PageObjects.Elements(browser);
 			homePage.MaximiseWindow(browser);
-			webDriver.Navigate().GoToUrl(Instances.Mediaburst.Info.link + SessionID.BasicSessionID.list[1]);
+			webDriver.Navigate().GoToUrl(Instances.MediaburstPaymentPortal.Info.link + SessionID.BasicSessionID.list[1]);
 			homePage.EnterCardHolderName(TestCards.Worldpay.VisaCredit.credit_card_holder);
 			Thread.Sleep(5000);
 			homePage.EnterCardNumber(TestCards.Worldpay.VisaDebit.debit_card_number);
