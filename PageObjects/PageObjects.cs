@@ -50,14 +50,15 @@ namespace CommifyMSTestFramework.PageObjects
         public IWebElement SecureSSLDescription => driver.FindElement(By.XPath("/html/body/div/div[2]/div[3]/form/div[2]/div[1]/div[1]/div[2]"));
         public IWebElement Amount => driver.FindElement(By.XPath("/html/body/div/div[2]/div[3]/form/div[2]/div[1]/div[3]/div[2]/span"));
 
-        //Validating Entered Details elements!
+        //Validating Entered Details elements! 
+        //needs to be reviewed with wait or thread sleep
         public IWebElement ValidatingEnteredDetails => driver.FindElement(By.XPath("/html/body/div/div[2]/div[5]/div[1]/h4[1]"));
         public IWebElement DontRefreshThePage_ValidatingEnteredDetails => driver.FindElement(By.XPath("/html/body/div/div[2]/div[5]/div[1]/p"));
         public IWebElement PleaseWait_ValidatingEnteredDetails => driver.FindElement(By.XPath("/html/body/div/div[2]/div[5]/div[1]/h4[2]"));
         public IWebElement Spinner_ValidatingEnteredDetails => driver.FindElement(By.XPath("/html/body/div/div[2]/div[5]/div[2]/img"));
 
-
         //Processing Payment elements!
+        //needs to be reviewed with wait or thread sleep
         public IWebElement ProcessingPayment => driver.FindElement(By.XPath("/html/body/div/div[2]/form/div[1]/h4"));
         public IWebElement DontRefreshThePage_ProcessingPayment => driver.FindElement(By.XPath("/html/body/div/div[2]/form/div[1]/p"));
         public IWebElement PleaseWait_ProcessingPayment => driver.FindElement(By.XPath("/html/body/div/div[2]/form/div[2]/h4"));
