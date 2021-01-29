@@ -9,4 +9,9 @@ namespace CommifyMSTestFramework.Instances.WestBrom
         public static int InstanceID = 1185;
         public static string link = "https://westbrom.mysecurepay-int.co.uk/SessionId?=";
     }
+
+    class CSS
+    {
+        public static string ciao
+    }
 }

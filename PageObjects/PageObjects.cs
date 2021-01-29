@@ -26,6 +26,13 @@ namespace CommifyMSTestFramework.PageObjects
         public IWebElement ExpiryYear => driver.FindElement(By.Id("ExpireYear"));
         public IWebElement Cvc => driver.FindElement(By.Id("Cvc"));
 
+        //Input field label (text inside the input field)
+        public IWebElement LabelCardHolder => driver.FindElement(By.XPath("/html/body/div/div[2]/div[3]/form/div[1]/div[2]/div/div[1]/label"));
+        public IWebElement LabelCardNumber => driver.FindElement(By.XPath("/html/body/div/div[2]/div[3]/form/div[1]/div[2]/div/div[2]/label"));
+        public IWebElement LabelValidFrom => driver.FindElement(By.XPath("/html/body/div/div[2]/div[3]/form/div[1]/div[2]/div/div[4]/div[1]/div/label"));
+        public IWebElement LabelExpiryDate => driver.FindElement(By.XPath("/html/body/div/div[2]/div[3]/form/div[1]/div[2]/div/div[4]/div[3]/div/label"));
+        public IWebElement LabelCvc => driver.FindElement(By.XPath("/html/body/div/div[2]/div[3]/form/div[1]/div[2]/div/div[4]/div[5]/label"));
+
         //Buttons
         public IWebElement BackButton => driver.FindElement(By.Id("cancelUrlButton"));
         public IWebElement PayButton => driver.FindElement(By.Id("submitbtn"));
@@ -70,6 +77,9 @@ namespace CommifyMSTestFramework.PageObjects
             driver.Manage().Window.Maximize();
         }
 
+        ///////////////////////////////////////////////////////////////////////////////////////////////////////////////
+        // SendKeys() methods
+
         //Method which accepts a string, in order to fill the proper input field
         public void EnterCardHolderName(string cardHolderName)
         {
@@ -111,6 +121,9 @@ namespace CommifyMSTestFramework.PageObjects
         {
             Cvc.SendKeys(cvc);
         }
+
+        ///////////////////////////////////////////////////////////////////////////////////////////////////////////////
+        // Click() methods
 
         //Method used to click on the input field (can be used to check if the Binlookup is working well)
         public void ClickOnCardHolderName()
@@ -163,6 +176,39 @@ namespace CommifyMSTestFramework.PageObjects
         public void ClickOnBackButton()
         {
             BackButton.Click();
+        }
+
+        ///////////////////////////////////////////////////////////////////////////////////////////////////////////////
+        // Text() methods
+
+        //Method used to return a string for CardHolder label
+        public string GetText_LabelCardHolder()
+        {
+            return LabelCardHolder.Text;
+        }
+
+        //Method used to return a string for CardNumber label
+        public string GetText_LabelCardNumber()
+        {
+            return LabelCardNumber.Text;
+        }
+
+        //Method used to return a string for Valid From label
+        public string GetText_LabelValidFrom()
+        {
+            return LabelValidFrom.Text;
+        }
+
+        //Method used to return a string for Expiry Date label
+        public string GetText_LabelExpiryDate()
+        {
+            return LabelExpiryDate.Text;
+        }
+
+        //Method used to return a string for CVC label
+        public string GetText_LabelCvc()
+        {
+            return LabelCvc.Text;
         }
     }
 }
