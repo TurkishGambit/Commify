@@ -6,39 +6,46 @@ namespace CommifyMSTestFramework.SQL
 {
 	class Queries
 	{
+		//Method to get the status from tblPayments, based on InstanceId and SessionID
+		//We are passing the parameters instanceID and sessionID
+		//Then, we return the status as a String
 		public static String TblPaymentsGetStatusByInstanceIdAndSessionId(int instanceID, string sessionID)
 		{
 			DataTable QueryResult = GetQueryResult(
 				"Data Source=192.168.110.2; Initial Catalog = IVR_BORDER_AGILE_TEST; User ID = ivr; Password = letmein",
 				 $"select * from tblPayments where InstanceId = {instanceID} and reference = '{sessionID}' order by 1 desc");
-			// 4 is the index of Column of STATUS
 			//Bear in mind, if you want to pass a string into SQL query remember to add ' ' before and after the parameter
 			//e.g. and reference = '{sessionID}'
 			if (QueryResult.Rows.Count <= 0)
 			{
 				throw new ArgumentException("QueryResult is empty! No rows returned!");
 			}
+			// 4 is the index of Column of STATUS
 			String Status = QueryResult.Rows[0].ItemArray[4].ToString();
 			return Status;
 		}
 
+		//Method to get the status from tblSOAP where event LOOKUP-WEB, based on InstanceId and SessionID
+		//We are passing the parameters instanceID and sessionID
+		//Then, we return the status as a String
 		public static String TblSoapsGetLookUpWebStatusByInstanceIdAndSessionId(int instanceID, string sessionID)
 		{
 			DataTable QueryResult = GetQueryResult(
 				"Data Source=192.168.110.2; Initial Catalog = IVR_BORDER_AGILE_TEST; User ID = ivr; Password = letmein",
 				 $"select * from tblPayments where InstanceId = {instanceID} and " +
 				 $"and event = 'LOOKUP-WEB' and reference = '{sessionID}' order by 1 desc");
-			// 4 is the index of Column of STATUS
 			//Bear in mind, if you want to pass a string into SQL query remember to add ' ' before and after the parameter
 			//e.g. and reference = '{sessionID}'
 			if (QueryResult.Rows.Count <= 0)
 			{
 				throw new ArgumentException("QueryResult is empty! No rows returned!");
 			}
+			// 7 is the index of Column of STATUS
 			String Status = QueryResult.Rows[0].ItemArray[7].ToString();
 			return Status;
 		}
 		/////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+		// Private static method used by those methods, which return just one value
 		private static DataTable GetQueryResult(String vConnectionString, String vQuery)
 		{
 			SqlConnection Connection;  // It is for SQL connection
@@ -66,6 +73,8 @@ namespace CommifyMSTestFramework.SQL
 		}
 		/////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
+		//Method to delete the rows in tblSOAP based on InstanceId and SessionID
+		//We are passing the parameters instanceID and sessionID
 		public static void TblSoapDeleteUsingInstanceIdAndSessionId(int instanceID, string sessionID)
 		{
 			String conn = "Data Source=192.168.110.2; Initial Catalog = IVR_BORDER_AGILE_TEST; User ID = ivr; Password = letmein";
