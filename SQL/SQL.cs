@@ -20,7 +20,7 @@ namespace CommifyMSTestFramework.SQL
 			{
 				throw new ArgumentException("QueryResult is empty! No rows returned!");
 			}
-			// 4 is the index of Column of STATUS
+			// 4 is the index of column STATUS
 			String Status = QueryResult.Rows[0].ItemArray[4].ToString();
 			return Status;
 		}
@@ -32,7 +32,7 @@ namespace CommifyMSTestFramework.SQL
 		{
 			DataTable QueryResult = GetQueryResult(
 				"Data Source=192.168.110.2; Initial Catalog = IVR_BORDER_AGILE_TEST; User ID = ivr; Password = letmein",
-				 $"select * from tblPayments where InstanceId = {instanceID} and " +
+				 $"select * from tblSOAP where InstanceId = {instanceID} and " +
 				 $"and event = 'LOOKUP-WEB' and reference = '{sessionID}' order by 1 desc");
 			//Bear in mind, if you want to pass a string into SQL query remember to add ' ' before and after the parameter
 			//e.g. and reference = '{sessionID}'
@@ -40,10 +40,49 @@ namespace CommifyMSTestFramework.SQL
 			{
 				throw new ArgumentException("QueryResult is empty! No rows returned!");
 			}
-			// 7 is the index of Column of STATUS
+			// 7 is the index of column STATUS
 			String Status = QueryResult.Rows[0].ItemArray[7].ToString();
 			return Status;
 		}
+
+		//Method to get the status from tblSOAP where event LOOKUP-WEBHOOKS, based on InstanceId and SessionID
+		//We are passing the parameters instanceID and sessionID
+		//Then, we return the status as a String
+		public static String TblSoapsGetLookUpWebHookStatusByInstanceIdAndSessionId(int instanceID, string sessionID)
+		{
+			DataTable QueryResult = GetQueryResult(
+				"Data Source=192.168.110.2; Initial Catalog = IVR_BORDER_AGILE_TEST; User ID = ivr; Password = letmein",
+				 $"select * from tblSOAP where InstanceId = {instanceID} and " +
+				 $"and event = 'LOOKUP-WEBHOOKS' and reference = '{sessionID}' order by 1 desc");
+			//Bear in mind, if you want to pass a string into SQL query remember to add ' ' before and after the parameter
+			//e.g. and reference = '{sessionID}'
+			if (QueryResult.Rows.Count <= 0)
+			{
+				throw new ArgumentException("QueryResult is empty! No rows returned!");
+			}
+			// 7 is the index of column STATUS
+			String Status = QueryResult.Rows[0].ItemArray[7].ToString();
+			return Status;
+		}
+
+		//Method to get the value for "agile_web_debit_card_only" from tblConfig_Boolean
+		//We are passing the instanceID as parameter
+		public static String tblConfig_BooleanCheckAgile_web_debit_card_onlyByInstanceId(int instanceID)
+		{
+			DataTable QueryResult = GetQueryResult(
+				"Data Source=192.168.110.2; Initial Catalog = IVR_BORDER_AGILE_TEST; User ID = ivr; Password = letmein",
+				 $"select * from tblConfig_Boolean where InstanceId = {instanceID} and setting = 'agile_web_debit_card_only'");
+			//Bear in mind, if you want to pass a string into SQL query remember to add ' ' before and after the parameter
+			//e.g. and reference = '{sessionID}'
+			if (QueryResult.Rows.Count <= 0)
+			{
+				throw new ArgumentException("QueryResult is empty! No rows returned!");
+			}
+			// 2 is the index of column value
+			String Status = QueryResult.Rows[0].ItemArray[2].ToString();
+			return Status;
+		}
+
 		/////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 		// Private static method used by those methods, which return just one value
 		private static DataTable GetQueryResult(String vConnectionString, String vQuery)
@@ -102,3 +141,4 @@ namespace CommifyMSTestFramework.SQL
 		}
 	}
 }
+//Forza Juve! MM
