@@ -33,24 +33,36 @@ namespace CommifyMSTestFramework.PageObjects
         public IWebElement LabelExpiryDate => driver.FindElement(By.XPath("/html/body/div/div[2]/div[3]/form/div[1]/div[2]/div/div[4]/div[3]/div/label"));
         public IWebElement LabelCvc => driver.FindElement(By.XPath("/html/body/div/div[2]/div[3]/form/div[1]/div[2]/div/div[4]/div[5]/label"));
 
-        //Buttons
-        public IWebElement BackButton => driver.FindElement(By.Id("cancelUrlButton"));
-        public IWebElement PayButton => driver.FindElement(By.Id("submitbtn"));
+        //Back Button
+
+        //Back Button appearance
+        public IWebElement BackButtonForm => driver.FindElement(By.Id("cancelUrlButton"));
+        //Back Button text
+        public IWebElement BackButtonText => driver.FindElement(By.XPath("/html/body/div/div[2]/div[4]/button/span"));
+        //Pay Button appearance
+        public IWebElement PayButtonForm => driver.FindElement(By.Id("submitbtn"));
+        //Pay Button text
+        public IWebElement PayButtonText => driver.FindElement(By.Id("/html/body/div/div[2]/div[3]/form/div[2]/div[2]/button/span"));
+
 
         //Error messages
-        public IWebElement CardHolderErrorMessage => driver.FindElement(By.Id("CardHolder-error"));
-        public IWebElement CardNumberErrorMessage => driver.FindElement(By.Id("CardNumber-error"));
-        public IWebElement ValidFromMonthErrorMessage => driver.FindElement(By.Id("ValidMonth-error"));
-        public IWebElement ValidFromYearErrorMessage => driver.FindElement(By.Id("ValidYear-error"));
-        public IWebElement ExpiryMonthErrorMessage => driver.FindElement(By.Id("ExpireMonth-error"));
-        public IWebElement ExpiryYearErrorMessage => driver.FindElement(By.Id("ExpireYear-error"));
-        public IWebElement CvcErrorMessage => driver.FindElement(By.Id("Cvc-error"));
+        public IWebElement ErrorMessageCardHolder => driver.FindElement(By.Id("CardHolder-error"));
+        public IWebElement ErrorMessageCardNumber => driver.FindElement(By.Id("CardNumber-error"));
+        public IWebElement ErrorMessageValidFromMonth => driver.FindElement(By.Id("ValidMonth-error"));
+        public IWebElement ErrorMessageValidFromYear => driver.FindElement(By.Id("ValidYear-error"));
+        public IWebElement ErrorMessageExpiryMonth => driver.FindElement(By.Id("ExpireMonth-error"));
+        public IWebElement ErrorMessageExpiryYear => driver.FindElement(By.Id("ExpireYear-error"));
+        public IWebElement ErrorMessageCvc => driver.FindElement(By.Id("Cvc-error"));
 
         //Other secondary elements
+
         public IWebElement Logo => driver.FindElement(By.XPath("/html/body/div/div[1]/div/div/div/img"));
-        public IWebElement BodyHeadCardDetails => driver.FindElement(By.XPath("/html/body/div/div[2]/div[2]/h4")); //first row
-        public IWebElement BodyHeadDescription => driver.FindElement(By.XPath("/html/body/div/div[2]/div[2]/p")); //second row
-        public IWebElement BodyHeadDescription2 => driver.FindElement(By.Id("description2")); //third row (if the instance is debit only this row will be shown)
+        //first row after the logo
+        public IWebElement BodyHeadCardDetails => driver.FindElement(By.XPath("/html/body/div/div[2]/div[2]/h4"));
+        //second row after the logo
+        public IWebElement BodyHeadDescription => driver.FindElement(By.XPath("/html/body/div/div[2]/div[2]/p"));
+        //third row after the logo(if the instance is debit only this row will be shown)
+        public IWebElement BodyHeadDescription2 => driver.FindElement(By.Id("description2"));
 
         //shield to add!!!
         public IWebElement PaymentAmountDescription => driver.FindElement(By.XPath("/html/body/div/div[2]/div[3]/form/div[2]/div[1]/div[3]/div[1]"));
@@ -81,43 +93,43 @@ namespace CommifyMSTestFramework.PageObjects
         // SendKeys() methods
 
         //Method which accepts a string, in order to fill the proper input field
-        public void EnterCardHolderName(string cardHolderName)
+        public void Enter_CardHolderName(string cardHolderName)
         {
             CardHolder.SendKeys(cardHolderName);
         }
 
         //Method which accepts a string, in order to fill the proper input field
-        public void EnterCardNumber(string cardNumber)
+        public void Enter_CardNumber(string cardNumber)
         {
             CardNumber.SendKeys(cardNumber);
         }
 
         //Method which accepts a string, in order to fill the proper input field
-        public void EnterValidFromMonth(string validFromMonth)
+        public void Enter_ValidFromMonth(string validFromMonth)
         {
             ValidFromMonth.SendKeys(validFromMonth);
         }
 
         //Method which accepts a string, in order to fill the proper input field
-        public void EnterValidFromYear(string validFromYear)
+        public void Enter_ValidFromYear(string validFromYear)
         {
             ValidFromYear.SendKeys(validFromYear);
         }
 
         //Method which accepts a string, in order to fill the proper input field
-        public void EnterExpiryMonth(string expiryMonth)
+        public void Enter_ExpiryMonth(string expiryMonth)
         {
             ExpiryMonth.SendKeys(expiryMonth);
         }
 
         //Method which accepts a string, in order to fill the proper input field
-        public void EnterExpiryYear(string expiryYearh)
+        public void Enter_ExpiryYear(string expiryYearh)
         {
             ExpiryYear.SendKeys(expiryYearh);
         }
 
         //Method which accepts a string, in order to fill the proper input field
-        public void EnterCvc(string cvc)
+        public void Enter_Cvc(string cvc)
         {
             Cvc.SendKeys(cvc);
         }
@@ -126,60 +138,62 @@ namespace CommifyMSTestFramework.PageObjects
         // Click() methods
 
         //Method used to click on the input field (can be used to check if the Binlookup is working well)
-        public void ClickOnCardHolderName()
+        public void ClickOn_CardHolderName()
         {
             CardHolder.Click();
         }
 
         //Method used to click on the input field (can be used to check if the Binlookup is working well)
-        public void ClickOnCardNumber()
+        public void ClickOn_CardNumber()
         {
             CardNumber.Click();
         }
 
         //Method used to click on the input field
-        public void ClickOnValidFromMonth()
+        public void ClickOn_ValidFromMonth()
         {
             ValidFromMonth.Click();
         }
 
         //Method used to click on the input field
-        public void ClickOnValidFromYear()
+        public void ClickOn_ValidFromYear()
         {
             ValidFromYear.Click();
         }
 
         //Method used to click on the input field
-        public void ClickOnExpiryMonth()
+        public void ClickOn_ExpiryMonth()
         {
             ExpiryMonth.Click();
         }
 
         //Method used to click on the input field
-        public void ClickOnExpiryYear()
+        public void ClickOn_ExpiryYear()
         {
             ExpiryYear.Click();
         }
 
         //Method used to click on the input field
-        public void ClickOnCvc()
+        public void ClickOn_Cvc()
         {
             Cvc.Click();
         }
         //Method used to click on the Pay(Next) button
-        public void ClickOnPayButton()
+        public void ClickOn_PayButton()
         {
-            PayButton.Click();
+            PayButtonForm.Click();
         }
 
         //Method used to click on the Back button
-        public void ClickOnBackButton()
+        public void ClickOn_BackButton()
         {
-            BackButton.Click();
+            BackButtonForm.Click();
         }
 
         ///////////////////////////////////////////////////////////////////////////////////////////////////////////////
         // Text() methods
+
+        //----------------/Label get text/-----------------//
 
         //Method used to return a string for CardHolder label
         public string GetText_LabelCardHolder()
@@ -210,5 +224,51 @@ namespace CommifyMSTestFramework.PageObjects
         {
             return LabelCvc.Text;
         }
+
+        //-------------/Error messages get text/------------------//
+
+        //Method used to return the text from Card Holder Name error message
+        public string GetText_ErrorMessageCardHolder()
+        {
+            return ErrorMessageCardHolder.Text;
+        }
+
+        //Method used to return the text from Card Number error message
+        public string GetText_ErrorMessageCardNumber()
+        {
+            return ErrorMessageCardNumber.Text;
+        }
+
+        //Method used to return the text from Valid From Month error message
+        public string GetText_ErrorMessageValidFromMonth()
+        {
+            return ErrorMessageValidFromMonth.Text;
+        }
+
+        //Method used to return the text from Valid From Year error message
+        public string GetText_ErrorMessageValidFromYear()
+        {
+            return ErrorMessageValidFromYear.Text;
+        }
+
+        //Method used to return the text from Expiry Month error message
+        public string GetText_ErrorMessageExpiryMonth()
+        {
+            return ErrorMessageExpiryMonth.Text;
+        }
+
+        //Method used to return the text from Expiry Year error message
+        public string GetText_ErrorMessageExpiryYear()
+        {
+            return ErrorMessageExpiryYear.Text;
+        }
+
+        //Method used to return the text from Expiry Year error message
+        public string GetText_ErrorMessageCvc()
+        {
+            return ErrorMessageCvc.Text;
+        }
+
+
     }
 }
