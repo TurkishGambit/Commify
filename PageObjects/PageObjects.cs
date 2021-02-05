@@ -17,7 +17,7 @@ namespace CommifyMSTestFramework.PageObjects
             this.driver = driver;
         }
 
-        //Input fields
+        //---------------------/Input fields/------------------------//
         public IWebElement CardHolder => driver.FindElement(By.Id("CardHolder"));
         public IWebElement CardNumber => driver.FindElement(By.Id("CardNumber"));
         public IWebElement ValidFromMonth => driver.FindElement(By.Id("ValidMonth"));
@@ -26,26 +26,33 @@ namespace CommifyMSTestFramework.PageObjects
         public IWebElement ExpiryYear => driver.FindElement(By.Id("ExpireYear"));
         public IWebElement Cvc => driver.FindElement(By.Id("Cvc"));
 
-        //Input field label (text inside the input field)
+        //-------------------/Input field label (text inside the input field)/-----------------------//
         public IWebElement LabelCardHolder => driver.FindElement(By.XPath("/html/body/div/div[2]/div[3]/form/div[1]/div[2]/div/div[1]/label"));
         public IWebElement LabelCardNumber => driver.FindElement(By.XPath("/html/body/div/div[2]/div[3]/form/div[1]/div[2]/div/div[2]/label"));
         public IWebElement LabelValidFrom => driver.FindElement(By.XPath("/html/body/div/div[2]/div[3]/form/div[1]/div[2]/div/div[4]/div[1]/div/label"));
         public IWebElement LabelExpiryDate => driver.FindElement(By.XPath("/html/body/div/div[2]/div[3]/form/div[1]/div[2]/div/div[4]/div[3]/div/label"));
         public IWebElement LabelCvc => driver.FindElement(By.XPath("/html/body/div/div[2]/div[3]/form/div[1]/div[2]/div/div[4]/div[5]/label"));
 
-        //Back Button
+        //-------------------/Back Button/--------------------//
 
         //Back Button appearance
         public IWebElement BackButtonForm => driver.FindElement(By.Id("cancelUrlButton"));
         //Back Button text
         public IWebElement BackButtonText => driver.FindElement(By.XPath("/html/body/div/div[2]/div[4]/button/span"));
+        //Back Button arrow
+        public IWebElement BackButtonArrow => driver.FindElement(By.XPath("/html/body/div/div[2]/div[4]/button/img"));
+
+        //-------------------/Pay Button/---------------------//
+
         //Pay Button appearance
         public IWebElement PayButtonForm => driver.FindElement(By.Id("submitbtn"));
         //Pay Button text
         public IWebElement PayButtonText => driver.FindElement(By.Id("/html/body/div/div[2]/div[3]/form/div[2]/div[2]/button/span"));
+        //Pay Button arrow
+        public IWebElement PayButtonArrow => driver.FindElement(By.Id("/html/body/div/div[2]/div[3]/form/div[2]/div[2]/button/img"));
 
 
-        //Error messages
+        //----------------/Error messages/----------------//
         public IWebElement ErrorMessageCardHolder => driver.FindElement(By.Id("CardHolder-error"));
         public IWebElement ErrorMessageCardNumber => driver.FindElement(By.Id("CardNumber-error"));
         public IWebElement ErrorMessageValidFromMonth => driver.FindElement(By.Id("ValidMonth-error"));
@@ -54,20 +61,35 @@ namespace CommifyMSTestFramework.PageObjects
         public IWebElement ErrorMessageExpiryYear => driver.FindElement(By.Id("ExpireYear-error"));
         public IWebElement ErrorMessageCvc => driver.FindElement(By.Id("Cvc-error"));
 
-        //Other secondary elements
-
+        //-----------------/Other secondary elements/-----------------------//
+        //------------------------------------------------------------------//
+        
+        //Main Logo
         public IWebElement Logo => driver.FindElement(By.XPath("/html/body/div/div[1]/div/div/div/img"));
-        //first row after the logo
+        //First row after the logo
         public IWebElement BodyHeadCardDetails => driver.FindElement(By.XPath("/html/body/div/div[2]/div[2]/h4"));
-        //second row after the logo
-        public IWebElement BodyHeadDescription => driver.FindElement(By.XPath("/html/body/div/div[2]/div[2]/p"));
-        //third row after the logo(if the instance is debit only this row will be shown)
+        //Second row after the logo
+        public IWebElement BodyHeadDescription1 => driver.FindElement(By.XPath("/html/body/div/div[2]/div[2]/p"));
+        //Third row after the logo(if the instance is debit only this row will be shown)
         public IWebElement BodyHeadDescription2 => driver.FindElement(By.Id("description2"));
 
-        //shield to add!!!
+        //shield to add!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!! need to play with CSS!
+        //images for input field from CSS too.....
+
+        //Visa & MasterCard Logo
+        public IWebElement LogoVisaMastercard => driver.FindElement(By.XPath("/html/body/div/div[2]/div[3]/form/div[1]/div[2]/div/div[3]/img"));
+
+        //--------------/Summary panel elements/--------------//
         public IWebElement PaymentAmountDescription => driver.FindElement(By.XPath("/html/body/div/div[2]/div[3]/form/div[2]/div[1]/div[3]/div[1]"));
         public IWebElement SecureSSLDescription => driver.FindElement(By.XPath("/html/body/div/div[2]/div[3]/form/div[2]/div[1]/div[1]/div[2]"));
         public IWebElement Amount => driver.FindElement(By.XPath("/html/body/div/div[2]/div[3]/form/div[2]/div[1]/div[3]/div[2]/span"));
+        public IWebElement SummaryPanel => driver.FindElement(By.XPath("/html/body/div/div[2]/div[3]/form/div[2]"));
+
+        //--------------/Button panel elements/------------//
+        public IWebElement ButtonPanel => driver.FindElement(By.XPath("/html/body/div/div[2]/div[4]"));
+
+        //Maybe need a footer element for SGEF?
+
 
         //Validating Entered Details elements! 
         //needs to be reviewed with wait or thread sleep
@@ -193,7 +215,26 @@ namespace CommifyMSTestFramework.PageObjects
         ///////////////////////////////////////////////////////////////////////////////////////////////////////////////
         // Text() methods
 
-        //----------------/Label get text/-----------------//
+
+        //---------/Body Head Details -  first three phrases/---------//
+
+        //Method used to return the text from the Card Details after the logo
+        public string GetText_CardDetails()
+        {
+            return BodyHeadCardDetails.Text;
+        }
+        //Method used to return the text from the first description on the page after the logo
+        public string GetText_Description1()
+        {
+            return BodyHeadDescription1.Text;
+        }
+        //Method used to return the text from the second description on the page after the logo (if it's a debit only instance)
+        public string GetText_Description2()
+        {
+            return BodyHeadDescription2.Text;
+        }
+
+        //--------------------/Label get text/---------------------//
 
         //Method used to return a string for CardHolder label
         public string GetText_LabelCardHolder()
@@ -225,7 +266,7 @@ namespace CommifyMSTestFramework.PageObjects
             return LabelCvc.Text;
         }
 
-        //-------------/Error messages get text/------------------//
+        //---------------------/Error messages get text/------------------------//
 
         //Method used to return the text from Card Holder Name error message
         public string GetText_ErrorMessageCardHolder()
@@ -269,6 +310,40 @@ namespace CommifyMSTestFramework.PageObjects
             return ErrorMessageCvc.Text;
         }
 
+        //---------------------/Back & Pay button get text/------------------------//
+
+        //Method used to return the text from Back button
+        public string GetText_BackButton()
+        {
+            return BackButtonText.Text;
+        }
+
+        //Method used to return the text from Pay button
+        public string GetText_PayButton()
+        {
+            return PayButtonText.Text;
+        }
+
+
+        //---------------------/Summary panel elements get text/------------------------//
+
+        //Method used to return the text from Payment amount string
+        public string GetText_PaymentAmountDescription()
+        {
+            return PaymentAmountDescription.Text;
+        }
+
+        //Method used to return the text from Secure SSL string
+        public string GetText_SecureSSLDescription()
+        {
+            return SecureSSLDescription.Text;
+        }
+
+        //Method used to return the text from Secure SSL string
+        public string GetText_Amount()
+        {
+            return Amount.Text;
+        }
 
     }
 }
