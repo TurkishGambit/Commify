@@ -12,6 +12,6 @@ namespace CommifyMSTestFramework.Instances.WestBrom
 
     class CSS
     {
-        public static string ciao
+        public static string ciao;
     }
 }
