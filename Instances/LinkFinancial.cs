@@ -6,7 +6,7 @@ namespace CommifyMSTestFramework.Instances.LinkFinancial
 {
     class Info
     {
-        public static int InstanceID = 1188;
-        public static string link = "https://linkfinancial.mysecurepay-int.co.uk/SessionId?=";
+        public static int InstanceID = 1327;  //1188 - INT; 1327 - ST
+        public static string link = "https://linkfinancial.mysecurepay-staging.co.uk/SessionId?=";
     }
 }

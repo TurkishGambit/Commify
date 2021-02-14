@@ -10,7 +10,7 @@ namespace CommifyMSTestFramework.SessionID
 	{
 		public static String[] list = new String[]
 		{
-			"9bb1516a-da48-409f-8a6f-9e261b033fe3",
+			"976156be-28fc-45ef-81dd-06fab93c6010",
 			"ecc20cc0-68a7-4ad1-aa03-fba4c206b8ea",
 			"e83f70aa-24f4-4733-ad6d-b898b970b50f",
 			"0c4c9e61-51fd-4aa8-b199-0b92a4c2e3d9",
@@ -22,11 +22,11 @@ namespace CommifyMSTestFramework.SessionID
 			"3fdde440-2039-4f92-bf4e-2b873d2ff54e",
 			"e2a3923d-caf5-4636-a559-fbef1a6a4417",
 			"ea84b8c2-63ec-4b2e-89a0-ad3efeb962ce",
-			"976156be-28fc-45ef-81dd-06fab93c6010",
+			"9bb1516a-da48-409f-8a6f-9e261b033fe3",
 			"0a133e5e-fc75-4263-8c72-1d72b0985ee0"
 		};
 	}
-
+	
 	public class WestBromSessionID
 	{
 		public static String[] list = new String[]

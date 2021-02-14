@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using System.Text;
 
-namespace CommifyMSTestFramework.TestCards
+namespace CommifyMSTestFramework.TestCards.SagePay
 {
 
 	//COMMIFY-PROTX-ECOM-TEST
