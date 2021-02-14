@@ -87,7 +87,7 @@ namespace CommifyMSTestFramework.PSPMappings
 				 $"END " +
 				 $"ELSE	" +
 				 $"BEGIN " +
-				 $"SELECT 'Status' = 'Failed - VendorTXCode doesn''t match' " +
+				 $"SELECT 'Status' = 'Failed - Description doesn''t match' " +
 				 $"END");
 			//Bear in mind, if you want to pass a string into SQL query remember to add ' ' before and after the parameter
 			//e.g. and reference = '{sessionID}'
