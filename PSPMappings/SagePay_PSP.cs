@@ -38,7 +38,7 @@ namespace CommifyMSTestFramework.PSPMappings
 				 $"DECLARE @ordercode_tblPayments_XML_Sent varchar(100); " +
 				 $"SET @ordercode_tblPayments_XML_Sent = (" +
 				 $"SUBSTRING(@substring_XML_Sent, 14, LEN(@ClientUniqueID_tblSOAP))); " +
-				 $"IF(@ordercode_tblPayments_XML_Sent = @ClientUniqueID_tblSOAP) " +
+				 $"IF(@ordercode_tblPayments_XML_Sent = @ClientUniqueID_tblSOAP and (LEN(@ordercode_tblPayments_XML_Sent) > 0)) " +
 				 $"BEGIN " +
 				 $"SELECT " +
 				 $"'Status' = 'SUCCESS -> VendorTxCode sent: ' + @ordercode_tblPayments_XML_Sent " +
@@ -81,7 +81,7 @@ namespace CommifyMSTestFramework.PSPMappings
 				 $"FROM tblPayments where InstanceId = {instanceID} order by IVRSubmittedDate desc) p); " +
 				 $"DECLARE @description_tblPayments_XML_Sent varchar(100); " +
 				 $"SET @description_tblPayments_XML_Sent = (SUBSTRING(@substring_XML_Sent, 13, LEN(@Reference_tblPayments))); " +
-				 $"IF(@description_tblPayments_XML_Sent = @Reference_tblPayments) " +
+				 $"IF(@description_tblPayments_XML_Sent = @Reference_tblPayments and (LEN(@description_tblPayments_XML_Sent) > 0)) " +
 				 $"BEGIN " +
 				 $"SELECT 'Status' = 'SUCCESS -> Description sent: ' + @description_tblPayments_XML_Sent " +
 				 $"END " +
